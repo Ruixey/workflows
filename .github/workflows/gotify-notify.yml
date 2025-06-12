@@ -21,8 +21,7 @@ jobs:
     steps:
       - name: Send Gotify Notification
         run: |
-          curl -X POST "${{ secrets.GOTIFY_URL }}/message" \
-          -F "token=${{ secrets.GOTIFY_TOKEN }}" \
+          curl -X POST "${{ secrets.GOTIFY_URL }}/message?token=${{ secrets.GOTIFY_TOKEN }}" \
           -F "title=Docker Deploy Notification" \
           -F "message=${{ inputs.message }}" \
           -F "priority=${{ inputs.priority }}"
